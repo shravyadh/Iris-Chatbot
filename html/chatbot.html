@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Design</title>
+    <link rel="stylesheet" href="/css/chatbotStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans">
+</head>
+
+<body>
+    <div class="eye">
+        <div class="shut" onclick="openChatbot()">
+            <span></span>
+        </div>
+        <div class="ball">
+
+        </div>
+    </div>
+    <div id="chatbot">
+        <div id="upper-rectangle-orange">
+            <div class="iris"> IRIS </div>
+            <div class="hello"> Hello<img src="/images/twemoji_waving-hand-light-skin-tone.png" class="wave-emoji">
+            </div>
+            <div class="chatbot-intro">
+                I am Iris, a Virtual Assistant.
+                How may I help you?</p>
+            </div>
+            <div id="image-group">
+                <div><img src="/images/Vector.png" id="image"></div>
+            </div>
+        </div>
+        <div id="rectangle19">
+            <div class="faq">
+                Frequently Asked Questions <div class="question-mark-div"> <img src="/images/Group 4.png"
+                        class="question-mark-img"> </div>
+            </div>
+            <div class="rectangle14 rect-question">
+                <ol class="list-type">
+                    <li id="first-faq">Can I redeem my FB before the original term?</li>
+                </ol>
+            </div>
+            <div class="rectangle15 rect-question">
+                <ol class="list-type">
+                    <li id="second-faq"> How do I pay my credit card bill? </li>
+                </ol>
+            </div>
+            <div class="rectangle20 rect-question">
+                <ol class="list-type">
+                    <li id="third-faq">How can I get my Account Statement? </li>
+                </ol>
+            </div>
+            <div class="rectangle21 rect-question">
+                <ol class="list-type">
+                    <li id="third-faq">What is the tenure of the Fixed Deposit?</li>
+                </ol>
+            </div>
+            <button type="submit" class="button rect-question">
+                <img src="/images/chat 1.png" class="chat-icon"> Start a New Conversation
+            </button>
+
+        </div>
+
+    </div>
+</body>
+
+<script src="/js/script.js"></script>
+<script>
+    
+    var orangeUpperRect = document.getElementById("upper-rectangle-orange");
+    var faqRectangle = document.getElementById("rectangle19");
+    var image = document.getElementById("image");
+    var faqElements = document.getElementsByClassName("rect-question"); 
+    var chatbot = document.getElementById("chatbot");
+    
+    window.onload = (event) => {
+        
+        initStyle(chatbot);
+        initStyle(orangeUpperRect);
+        initStyle(faqRectangle);
+        for (var count=0; count < faqElements.length; count++)
+        {
+            initStyle(faqElements[count]);
+        }
+       
+    };
+
+    function openChatbot() {
+
+        toggleAnimation(chatbot);
+        setTimeout(function() {toggleAnimation(orangeUpperRect);}, 2000)
+        setTimeout(function() {buttonClickAnimation(image);}, 2700)
+        setTimeout(function() {toggleAnimation(faqRectangle);}, 3000);
+        
+        var timeOut = 3700;
+        for (var count=0; count < faqElements.length; count++)
+        {
+            let x = faqElements[count];
+            setTimeout(function() {toggleAnimation(x); }, timeOut + (count*1000));
+        }
+    }
+
+</script>
+
+</html>
